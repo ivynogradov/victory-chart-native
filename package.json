@@ -45,13 +45,13 @@
     "react-native-svg-mock": "^1.0.2"
   },
   "peerDependencies": {
-    "react": "^15.3.0",
-    "react-native": "~0.38.0",
-    "react-native-svg": "^4.1.0"
+    "react": "16.0.0",
+    "react-native": "0.50.4",
+    "react-native-svg": "6.0.1-rc.1"
   },
   "dependencies": {
-    "victory-chart": "^14.0.4",
-    "victory-core": "^10.0.3",
+    "victory-chart": "24.4.0",
+    "victory-core": "20.4.0",
     "victory-core-native": "^4.0.0"
   }
 }
