@@ -41,7 +41,7 @@
     "react-dom": "^15.3.0",
     "react-native": "~0.38.0",
     "react-native-mock": "^0.2.5",
-    "react-native-svg": "^4.1.0",
+    "react-native-svg": "^6.0.1-rc.1",
     "react-native-svg-mock": "^1.0.2"
   },
   "peerDependencies": {
@@ -52,6 +52,6 @@
   "dependencies": {
     "victory-chart": "24.4.0",
     "victory-core": "20.4.0",
-    "victory-core-native": "^4.0.0"
+    "victory-core-native": "ivynogradov/victory-core-native"
   }
 }
