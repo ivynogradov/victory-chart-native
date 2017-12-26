@@ -33,7 +33,7 @@ const components = [
 describe("Default render", () => {
   components.forEach((c) => {
     it(`should work for ${c.name}`, () => {
-      const wrapper = render(React.createElement(c.component));
+      const wrapper = render(<c.component />);
       expect(wrapper).to.have.length(1);
     });
   });

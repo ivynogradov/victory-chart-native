@@ -70,9 +70,24 @@ class Demo extends Component {
       transitionData: this.getTransitionData()
     };
   }
-  getYFunction() {
-    const n = random(2, 7);
-    return (data) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        y: this.getYFunction(),
+        style: this.getStyles(),
+        transitionData: this.getTransitionData()
+      });
+    }, 3000);
+  }
+
+  getStaticData() {
+    const n = 100;
+    return range(n).map((i) => {
+      return {
+        x: i,
+        y: i < n / 2 ? random(0, 100) : random(100, 200)
+      };
+    });
   }
 
   getStyles() {
@@ -96,24 +111,9 @@ class Demo extends Component {
     });
   }
 
-  getStaticData() {
-    const n = 100;
-    return range(n).map((i) => {
-      return {
-        x: i,
-        y: i < n / 2 ? random(0, 100) : random(100, 200)
-      };
-    });
-  }
-
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        y: this.getYFunction(),
-        style: this.getStyles(),
-        transitionData: this.getTransitionData()
-      });
-    }, 3000);
+  getYFunction() {
+    const n = random(2, 7);
+    return (data) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
   }
   render() {
     return (

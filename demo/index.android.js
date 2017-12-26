@@ -55,9 +55,22 @@ class Demo extends Component {
       staticData: this.getStaticData()
     };
   }
-  getYFunction() {
-    const n = random(2, 7);
-    return (data) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        y: this.getYFunction(),
+        style: this.getStyles()
+      });
+    }, 3000);
+  }
+  getStaticData() {
+    const n = 100;
+    return range(n).map((i) => {
+      return {
+        x: i,
+        y: i < n / 2 ? random(0, 100) : random(100, 200)
+      };
+    });
   }
   getStyles() {
     const colors = [
@@ -69,22 +82,9 @@ class Demo extends Component {
       strokeWidth: random(1, 5)
     };
   }
-  getStaticData() {
-    const n = 100;
-    return range(n).map((i) => {
-      return {
-        x: i,
-        y: i < n / 2 ? random(0, 100) : random(100, 200)
-      };
-    });
-  }
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        y: this.getYFunction(),
-        style: this.getStyles()
-      });
-    }, 3000);
+  getYFunction() {
+    const n = random(2, 7);
+    return (data) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
   }
   render() {
     return (
